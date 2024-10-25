@@ -1,22 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView, } from 'react-native';
+import ToDoForm from './app/toDoForm';
+import ToDoList from './app/toDoList';
 
-export default function App() {
+
+function App() {
+  const [tasks, SetTasks] = useState(['Do laundry', 'Go to gym', 'Walk dog']);
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView>
+      <ToDoList tasks={tasks} />
+      <ToDoForm />
+    </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
+export default App;
 //you just need to chuck npx expo start -c in the terminal to start
